@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/"
+const url = "https://api-chama.onrender.com/"
 
 const loginForm = document.querySelector('#login')
 loginForm.addEventListener('submit', async(e) => {

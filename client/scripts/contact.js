@@ -1,9 +1,7 @@
 emailjs.init('gGsAqaQhvZFyToU-S');
 const form = document.querySelector('.php-email-form')
 
-const sendEmail = (e) => {
-
-    e.preventDefault()
+const sendEmail = () => {
 
     const name = form.name.value;
     const email = form.email.value;
@@ -24,4 +22,10 @@ const sendEmail = (e) => {
         console.log('FAILED...', error);
       });
 }
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    sendEmail()
+})
   

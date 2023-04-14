@@ -1,5 +1,5 @@
 const form = document.querySelector('#form')
-onst url = "https://api-chama.onrender.com/"
+const url = "https://api-chama.onrender.com/"
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault()

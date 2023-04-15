@@ -14,9 +14,18 @@ loginForm.addEventListener('submit', async(e) => {
             headers: { 'Content-Type': 'application/json' }
         })     
         
-        location.assign('./components/dashboard.html')
+        if (res.status === 200){
+            location.assign('./components/dashboard.html')
+        }
+        else {
+            const error = await (res.json())
+            console.log(error.message)
+        }
+
     } catch (error) {
         console.log(error.message);
         
     }
+
+    loginForm.reset()
 })

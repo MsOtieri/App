@@ -321,7 +321,7 @@
           </li><!-- End Register Page Nav -->
 
           <li class="nav-item">
-            <a class="nav-link collapsed" href="index.html">
+            <a class="nav-link collapsed" href="../index.html">
               <i class="bi bi-box-arrow-in-right"></i>
               <span>Login</span>
             </a>
@@ -448,7 +448,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6 id="users-num">124</h6>
+                      <h6 id="users-num"></h6>
                       <span class="text-danger small pt-1 fw-bold">7%</span> <span
                         class="text-muted small pt-2 ps-1">decrease</span>
 
@@ -813,30 +813,8 @@
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <script>
-    const fetchData = async() => {
-      try {
-          const res = await fetch(`http://localhost:5000/users`)
-          const data = await res.json()
+  <script src="../scripts/script.js"></script>
   
-          console.log(data.length)
-          return data.length
-      } catch (e) {
-          console.log(e.message)
-      }
-    }
-  
-  const users = fetchData()
-  console.log(users)
-  
-  const h6 = document.querySelector('#users-num')
-  
-  if (users){
-    h6.innerText = users
-  }
-  </script>
-  
-
 </body>
 
 </html>

@@ -31,21 +31,23 @@ const signup_post = async(req, res) => {
 
 const signin_post = async(req, res) => {
     const { username, password } = req.body
-
+  
     try {
         const user = await User.login(username, password)
         res.status(200).json({ user: user._id})
 
-        console.log(user)
+        // console.log(user)
 
     } 
     catch (error) {
-        res.status(500).json(error)
+        res.status(401).json({message: "Invalid login credentials"})
     }
+
+    
     
 }
 
 module.exports = {
     signup_post,
-    signin_post
+    signin_post,
 }

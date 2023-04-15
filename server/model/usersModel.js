@@ -26,7 +26,7 @@ userSchema.statics.login = async function(username, password){
         }
         throw Error('Incorrect username')
     }
-    throw Error('Incorrect username')
+    throw Error
 }
 
 const User = new model('user', userSchema)

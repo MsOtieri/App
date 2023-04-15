@@ -2,7 +2,7 @@ const User = require('../model/usersModel')
 const jwt = require('jsonwebtoken')
 const { SECRET } = process.env
 
-const maxAge = 24 * 3 * 60 * 60
+const maxAge = 24 * 60 * 60
 const createToken = (id) => {
     return jwt.sign({ id }, SECRET, {
         expiresIn: maxAge,
@@ -19,9 +19,16 @@ const signup_post = async(req, res) => {
 
         const token = createToken(user._id)
 
-        res.cookie('jwt', token)
+        res.cookie('jwt', token, {
+            domain: 'chamaa.onrender.com',
+            path: '/',
+            maxAge: maxAge * 1000, // 1 day
+            httpOnly: true,
+            secure: false,
+            sameSite: 'strict',
+          })
         
-        res.status(201).json(token)
+        res.status(201).json({user: user._id})
 
     } catch (error) {
         res.send(error.message)

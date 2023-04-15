@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             const user = await res.json()
-            alert(user)
             location.assign('../components/dashboard.html')
 
         } catch (error) {

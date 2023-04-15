@@ -20,7 +20,7 @@ const signup_post = async(req, res) => {
         const token = createToken(user._id)
 
         res.cookie('jwt', token, {
-            domain: 'localhost',
+            domain: 'chamaa.netlify.app',
             path: '/',
             maxAge: maxAge * 1000, // 1 day
             httpOnly: true,

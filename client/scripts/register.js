@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#form')
-    const url = "https://api-chama.onrender.com/"
+    const url = "http://localhost:5000/"
 
     const signup = async() => {
         const person_name = form.name.value
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = form.password.value
 
         const userData = { person_name, email, username, password }
-
     
         try {  
             const res = await fetch(`${url}signup`, {
@@ -19,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 }
             })
-            const user = await res.json()
+            const token = await res.json()
+            
+            document.cookie = `jwt=${token.user};path=/;`;
             location.assign('../components/dashboard.html')
 
         } catch (error) {
@@ -31,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         signup()
 
-        form.reset()
+        setTimeout(() => {form.reset()}, 7000)
+
     })
 
     // end signup 

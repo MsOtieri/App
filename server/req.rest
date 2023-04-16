@@ -1,9 +1,9 @@
-POST http://localhost:5000/signup
+PuT http://localhost:5000/users/643c3ec66d951c07b8491fbb
 Content-Type: application/json
 
 {
     "name": "kassim ali",
-    "email": "kassim@yahoo.com",
-    "username": "caseem",
+    "email": "omari@special.com",
+    "username": "omiero",
     "password": "kassimali2001"
 }

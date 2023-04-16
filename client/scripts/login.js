@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/"
+const url = "https://api-chama.onrender.com/"
 
 const loginForm = document.querySelector('#login')
 loginForm.addEventListener('submit', async(e) => {
@@ -15,6 +15,9 @@ loginForm.addEventListener('submit', async(e) => {
         })     
         
         if (res.status === 200){
+            const token = await res.json()
+            
+            document.cookie = `jwt=${token.user};path=/;`; 
             location.assign('./components/dashboard.html')
         }
         else {

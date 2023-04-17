@@ -1,4 +1,4 @@
-emailjs.init('gGsAqaQhvZFyToU-S');
+emailjs.init('rcsatNGnB_c2Dso33');
 const form = document.querySelector('.php-email-form')
 
 const sendEmail = () => {
@@ -15,9 +15,11 @@ const sendEmail = () => {
       message: message,
     };
   
-    emailjs.send('service_3f99l9w', 'template_coi7n6m', params)
+    emailjs.send('service_o30424p', 'template_okp5r0d', params)
+    
       .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
+        form.reset()
       }, function(error) {
         console.log('FAILED...', error);
       });
@@ -25,7 +27,9 @@ const sendEmail = () => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-
+    
     sendEmail()
+    
+
 })
   

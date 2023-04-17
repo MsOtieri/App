@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const token = await res.json()
             
             document.cookie = `jwt=${token.user};path=/;`;
-            location.assign('../components/dashboard.html')
+            location.assign('../index.html')
 
         } catch (error) {
             console.log(error.message)

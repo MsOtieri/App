@@ -23,7 +23,7 @@ let user
         const users = await fetchData()
         console.log(users)
 
-        if (window.location.pathname === "/client/components/dashboard.html"){
+        if (users && window.location.pathname === "/client/components/dashboard.html"){
             const h6 = document.querySelector('.users-num')
             h6.innerText = users.length
         }
@@ -49,8 +49,8 @@ let user
             const form = document.getElementById('update-profile')
             
             const updateUser = async() => {
-                const username = form.username.value
-                const email = form.email.value
+                const username = form.username.value ? form.username.value : user.username
+                const email = form.email.value ? form.email.value : user.email
                 const name = user.name
                 const password = user.password
 
